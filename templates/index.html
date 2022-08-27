@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+    <meta charset="UTF-8">
+    <title>Face Recognition</title>
+        <!-- Associando o arquivo estático de Design do site ao arquivo html-->
+		<link rel="stylesheet" href="{{ url_for('static',filename='css/main.css')}}">
+    </head>
+
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8  offset-lg-2">
+            <!-- Inserindo título do site -->
+            <h1 class="mt-5">FACE RECOGNITION APP - Iniciação Científica 2021/2022</h1>
+
+            <!-- Função utilizada para escrever mensagens diretamente no
+            arquivo Face_recognition_app.py, utilizando 'flash()'
+            -->
+			<form method="post" action="{{ url_for('tasks') }}">
+				            {% for message in get_flashed_messages()%}
+                <p> {{message}}</p>
+            {% endfor %}
+
+            <!-- Acrescentando todos os botões do site -->
+            <input type="submit" value="Face Recognition" name="fr"/>
+            <input type="submit" value="Landmarks" name="land"/>
+			<input type="submit" value="Grey" name="grey" />
+			<input type="submit" value="Negative" name="neg" />
+			<input type="submit" value="Face Only" name="face" />
+
+			</form>
+
+            <!-- Exibindo o vídeo com os resultados -->
+            <img src="{{ url_for('video_feed') }}" height="80%">
+            <br>
+            <h3> Pontifícia Universidade Católica de
+
+                Campinas </h3>
+            <h3> Nathalia Farinha Rodrigues </h3>
+            <h3> Orientador: Prof. Dr. Eric A. M. Fagotto </h3>
+            <br>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
